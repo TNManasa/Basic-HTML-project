@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Quadratic Formula Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/css/uikit.min.css" />
+    
+</head>
+<body>
+        <div class="uk-card uk-position-center uk-card-default uk-card-body uk-width-1-2@m">
+            <h3 class="uk-card-title">Quadratic Equation Calculator</h3>
+            <p>Use the inputs below to enter values for "a", "b" and "c".</p>
+            <div class="uk-margin">
+                <input id="valueA" class="uk-input uk-width-1-2 uk-form-medium" type="text" placeholder="A value">
+            </div>
+            <div class="uk-margin">
+                <input id="valueB" class="uk-input uk-width-1-2 uk-form-medium" type="text" placeholder="B value">
+            </div>
+            <div class="uk-margin">
+                <input id="valueC" class="uk-input uk-width-1-2 uk-form-medium" type="text" placeholder="C value">
+            </div>
+            <p id="answerID"></p>
+            <p uk-margin>
+                <button onclick="test();" class="uk-button uk-button-primary">Calculate</button>
+            </p>
+            <p>2018- FuseDojo</p>
+        </div>
+        
+        <script>
+            
+        function test(){
+            var a = parseInt(document.getElementById("valueA").value);
+            var b = parseInt(document.getElementById("valueB").value);
+            var c = parseInt(document.getElementById("valueC").value);
+
+            var ac = -4 * a * c ;
+            var power = Math.pow(b, 2);
+            var discriminant = power + ac;
+            var answerPositive = (-b + Math.sqrt(discriminant)) / (2 * a);
+            var answerNegative = (-b - Math.sqrt(discriminant)) / (2 * a);
+
+
+            if(isNaN(answerNegative || answerPositive) === true) {
+                var displayAnswers = document.getElementById('answerID').innerHTML = "Not A Real Solution";
+            } else {
+                 displayAnswers = document.getElementById('answerID').innerHTML = "X1: " + answerPositive + "<br>" + "X2: " + answerNegative;
+            }
+        }
+        
+        
+        </script>
+
+        
+
+</body>
+<!-- UIkit JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/js/uikit.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/js/uikit-icons.min.js"></script>
+
+</html>
+
